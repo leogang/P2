@@ -2,10 +2,14 @@ var bio = {
 	"name": "cody albert",
 	"role": "front-end web developer",
 	"contacts": {
+    "mobile": "1234567",
     "email": "john@example.com",
+    "twitter": "@applejuiced",
     "github": "leogang",
+    "blog": "longreader.wordpress.com",
     "location": "San Diego, CA"
   },
+  "welcome": "hi, hello, greetings, vilkommen",
 	"skills": ["ui design", "web design", "python",
 	  "analytical thinking"],
 	"pic": "images/moebiusOpp.jpg"
@@ -73,14 +77,27 @@ bio.display = function() {
   $("#header").append(formattedPic);
 
   // create contacts section
+  var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+  $("#topContacts").append(formattedMobile);
+
   var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
   $("#topContacts").append(formattedEmail);
+
+  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+  $("#topContacts").append(formattedTwitter);
 
   var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
   $("#topContacts").append(formattedGithub);
 
+  var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
+  $("#topContacts").append(formattedBlog);
+
   var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
   $("#topContacts").append(formattedLocation);
+
+  // Welcome Message
+  var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcome);
+  $("#topContacts").append(formattedWelcomeMsg);
 
   if (bio.skills.length > 0) {
     // create Skills section with title
